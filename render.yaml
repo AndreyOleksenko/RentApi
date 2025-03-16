@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: rental-backend
+    env: docker
+    dockerfilePath: ./RentalService/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: ALLOWED_HOSTS
+        value: rental-backend.onrender.com
+      - key: DB_NAME
+        value: rental_db
+      # Другие переменные окружения...
+
+  - type: web
+    name: rental-frontend
+    env: docker
+    dockerfilePath: ./rental-frontend/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://rental-backend.onrender.com
