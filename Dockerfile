@@ -14,7 +14,7 @@ WORKDIR /app
 
 # Установка зависимостей
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /RentalService/requirements.txt
 RUN pip install gunicorn
 
 # Копирование бэкенда
