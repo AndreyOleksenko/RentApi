@@ -5,11 +5,11 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Использование переменных окружения для секретных данных
-SECRET_KEY = os.environ.get('SECRET_KEY', 'your-secret-key-for-dev')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'your-secret-key')
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = ['your-backend-domain.com', 'www.your-backend-domain.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,10 +61,10 @@ WSGI_APPLICATION = 'RentalService.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'rental_db'),
-        'USER': os.environ.get('DB_USER', 'rental_user'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'password'),
-        'HOST': os.environ.get('DB_HOST', 'db'),
+        'NAME': os.environ.get('DB_NAME', 'rentdb_4v87'),
+        'USER': os.environ.get('DB_USER', 'rentdb_4v87_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'r6aqq5Thow7CDPDvxEpI3QgbTpZNedjV'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
         'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
@@ -104,7 +104,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Настройка CORS
-CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost,http://127.0.0.1').split(',')
+CORS_ALLOWED_ORIGINS = [
+    "https://your-frontend-domain.com",
+]
 
 CORS_ALLOW_CREDENTIALS = True
 
